@@ -19,7 +19,7 @@
           
           
           
-        <Column0>126</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
+        <Column0>166</Column0><Column1>27</Column1><Column2>27</Column2><Column3>27</Column3></ColumnWidths>
       </Workspace>
       <Disassembly>
         
@@ -31,7 +31,7 @@
       
       
       
-    <Wnd2>
+    <Wnd0>
         <Tabs>
           <Tab>
             <Identity>TabID-18685-11150</Identity>
@@ -47,7 +47,7 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd2><Wnd4>
+      <SelectedTab>0</SelectedTab></Wnd0><Wnd1>
         <Tabs>
           <Tab>
             <Identity>TabID-29433-11153</Identity>
@@ -59,7 +59,7 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd4><Wnd5>
+      <SelectedTab>0</SelectedTab></Wnd1><Wnd3>
         <Tabs>
           <Tab>
             <Identity>TabID-7414-11157</Identity>
@@ -69,20 +69,20 @@
           </Tab>
         </Tabs>
         
-      <SelectedTab>0</SelectedTab></Wnd5><Wnd7><Tabs><Tab><Identity>TabID-17047-11643</Identity><TabName>Watch</TabName><Factory>Watch</Factory><Session><Expressions><Expression><Expression>pkt</Expression></Expression><Expression><Expression>count</Expression></Expression><Expression><Expression>pkt->rssi</Expression></Expression><Expression><Expression>rssi_buf[0]</Expression></Expression><Expression><Expression>rssi_buf</Expression></Expression></Expressions><TabId>5</TabId><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd7></Windows>
+      <SelectedTab>0</SelectedTab></Wnd3><Wnd6><Tabs><Tab><Identity>TabID-17047-11643</Identity><TabName>Watch</TabName><Factory>Watch</Factory><Session><Expressions><Expression><Expression>pkt</Expression></Expression><Expression><Expression>count</Expression></Expression><Expression><Expression>pkt->rssi</Expression></Expression><Expression><Expression>rssi_buf[0]</Expression></Expression><Expression><Expression>rssi_buf</Expression></Expression></Expressions><TabId>5</TabId><Column0>100</Column0><Column1>100</Column1><Column2>100</Column2><Column3>100</Column3></Session></Tab></Tabs><SelectedTab>0</SelectedTab></Wnd6></Windows>
     <Editor>
       
       
       
       
-    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\Tools\CC2530DB\f8w2530.xcl</Filename><XPos>0</XPos><YPos>189</YPos><SelStart>6854</SelStart><SelEnd>6854</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\Tools\CC2530DB\f8wConfig.cfg</Filename><XPos>0</XPos><YPos>33</YPos><SelStart>1978</SelStart><SelEnd>1978</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\hal\target\CC2530EB\hal_board_cfg.h</Filename><XPos>0</XPos><YPos>39</YPos><SelStart>855</SelStart><SelEnd>855</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\mac_radio_defs.h</Filename><XPos>0</XPos><YPos>317</YPos><SelStart>16850</SelStart><SelEnd>16850</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\mac_radio_defs.c</Filename><XPos>0</XPos><YPos>291</YPos><SelStart>12704</SelStart><SelEnd>12704</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\mac\high_level\mac_pib.c</Filename><XPos>0</XPos><YPos>253</YPos><SelStart>13254</SelStart><SelEnd>13254</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\mt\MT_UART.c</Filename><XPos>0</XPos><YPos>92</YPos><SelStart>4749</SelStart><SelEnd>4773</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\hal\target\CC2530EB\hal_uart.c</Filename><XPos>0</XPos><YPos>183</YPos><SelStart>6079</SelStart><SelEnd>6079</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\mt\MT_UART.h</Filename><XPos>0</XPos><YPos>46</YPos><SelStart>3284</SelStart><SelEnd>3284</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\SampleAppHw.h</Filename><XPos>0</XPos><YPos>72</YPos><SelStart>0</SelStart><SelEnd>0</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\osal\common\OSAL.c</Filename><XPos>0</XPos><YPos>948</YPos><SelStart>25227</SelStart><SelEnd>25227</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\OSAL_SampleApp.c</Filename><XPos>0</XPos><YPos>106</YPos><SelStart>3964</SelStart><SelEnd>3964</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\stack\af\AF.h</Filename><XPos>0</XPos><YPos>201</YPos><SelStart>7799</SelStart><SelEnd>7799</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\ZMain\TI2530DB\ZMain.c</Filename><XPos>0</XPos><YPos>70</YPos><SelStart>3115</SelStart><SelEnd>3115</SelEnd></Tab><ActiveTab>13</ActiveTab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\mac\low_level\srf04\mac_rx.c</Filename><XPos>0</XPos><YPos>677</YPos><SelStart>24535</SelStart><SelEnd>24535</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\hal\target\CC2530EB\hal_types.h</Filename><XPos>0</XPos><YPos>46</YPos><SelStart>2724</SelStart><SelEnd>2724</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\..\..\..\..\Components\hal\include\hal_defs.h</Filename><XPos>0</XPos><YPos>120</YPos><SelStart>3380</SelStart><SelEnd>3380</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\SampleApp.c</Filename><XPos>0</XPos><YPos>417</YPos><SelStart>15406</SelStart><SelEnd>15406</SelEnd></Tab><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\SampleApp.h</Filename><XPos>0</XPos><YPos>77</YPos><SelStart>3486</SelStart><SelEnd>3486</SelEnd></Tab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
+    <Pane><Tab><Factory>TextEditor</Factory><Filename>$WS_DIR$\..\Source\SampleApp.c</Filename><XPos>0</XPos><YPos>403</YPos><SelStart>16117</SelStart><SelEnd>16117</SelEnd></Tab><ActiveTab>0</ActiveTab></Pane><ActivePane>0</ActivePane><Sizes><Pane><X>1000000</X><Y>1000000</Y></Pane></Sizes><SplitMode>1</SplitMode></Editor>
     <Positions>
       
       
       
       
       
-    <Top><Row0><Sizes><Toolbar-053a2a20><key>iaridepm.enu1</key></Toolbar-053a2a20></Sizes></Row0><Row1><Sizes><Toolbar-2daa0100><key>debuggergui.enu1</key></Toolbar-2daa0100></Sizes></Row1></Top><Left><Row0><Sizes><Wnd4><Rect><Top>-2</Top><Left>-2</Left><Bottom>474</Bottom><Right>200</Right><x>-2</x><y>-2</y><xscreen>133</xscreen><yscreen>136</yscreen><sizeHorzCX>103906</sizeHorzCX><sizeHorzCY>200886</sizeHorzCY><sizeVertCX>157813</sizeVertCX><sizeVertCY>703102</sizeVertCY></Rect></Wnd4></Sizes></Row0></Left><Right><Row0><Sizes><Wnd5><Rect><Top>-2</Top><Left>-2</Left><Bottom>474</Bottom><Right>131</Right><x>-2</x><y>-2</y><xscreen>133</xscreen><yscreen>136</yscreen><sizeHorzCX>103906</sizeHorzCX><sizeHorzCY>200886</sizeHorzCY><sizeVertCX>103906</sizeVertCX><sizeVertCY>703102</sizeVertCY></Rect></Wnd5></Sizes></Row0><Row1><Sizes><Wnd7><Rect><Top>-2</Top><Left>129</Left><Bottom>474</Bottom><Right>329</Right><x>129</x><y>-2</y><xscreen>200</xscreen><yscreen>200</yscreen><sizeHorzCX>156250</sizeHorzCX><sizeHorzCY>295421</sizeHorzCY><sizeVertCX>156250</sizeVertCX><sizeVertCY>703102</sizeVertCY></Rect></Wnd7></Sizes></Row1></Right><Bottom><Row0><Sizes><Wnd2><Rect><Top>-2</Top><Left>-2</Left><Bottom>134</Bottom><Right>1282</Right><x>-2</x><y>-2</y><xscreen>1284</xscreen><yscreen>136</yscreen><sizeHorzCX>1003125</sizeHorzCX><sizeHorzCY>200886</sizeHorzCY><sizeVertCX>103906</sizeVertCX><sizeVertCY>200886</sizeVertCY></Rect></Wnd2></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
+    <Top><Row0><Sizes><Toolbar-04d45fb8><key>iaridepm.enu1</key></Toolbar-04d45fb8></Sizes></Row0><Row1><Sizes><Toolbar-129c2c00><key>debuggergui.enu1</key></Toolbar-129c2c00></Sizes></Row1></Top><Left><Row0><Sizes><Wnd1><Rect><Top>-2</Top><Left>-2</Left><Bottom>557</Bottom><Right>240</Right><x>-2</x><y>-2</y><xscreen>160</xscreen><yscreen>157</yscreen><sizeHorzCX>104167</sizeHorzCX><sizeHorzCY>201024</sizeHorzCY><sizeVertCX>157552</sizeVertCX><sizeVertCY>715749</sizeVertCY></Rect></Wnd1></Sizes></Row0></Left><Right><Row0><Sizes><Wnd3><Rect><Top>-2</Top><Left>-2</Left><Bottom>557</Bottom><Right>158</Right><x>-2</x><y>-2</y><xscreen>160</xscreen><yscreen>157</yscreen><sizeHorzCX>104167</sizeHorzCX><sizeHorzCY>201024</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>715749</sizeVertCY></Rect></Wnd3></Sizes></Row0><Row1><Sizes><Wnd6><Rect><Top>-2</Top><Left>156</Left><Bottom>557</Bottom><Right>396</Right><x>156</x><y>-2</y><xscreen>240</xscreen><yscreen>231</yscreen><sizeHorzCX>156250</sizeHorzCX><sizeHorzCY>295775</sizeHorzCY><sizeVertCX>156250</sizeVertCX><sizeVertCY>715749</sizeVertCY></Rect></Wnd6></Sizes></Row1></Right><Bottom><Row0><Sizes><Wnd0><Rect><Top>-2</Top><Left>-2</Left><Bottom>155</Bottom><Right>1538</Right><x>-2</x><y>-2</y><xscreen>1540</xscreen><yscreen>157</yscreen><sizeHorzCX>1002604</sizeHorzCX><sizeHorzCY>201024</sizeHorzCY><sizeVertCX>104167</sizeVertCX><sizeVertCY>201024</sizeVertCY></Rect></Wnd0></Sizes></Row0></Bottom><Float><Sizes/></Float></Positions>
   </Desktop>
 </Project>
 
