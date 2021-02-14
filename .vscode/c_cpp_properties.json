@@ -1,0 +1,47 @@
+{
+    "version": 4,
+    "configurations": [
+        {
+            "name": "IAR",
+            "defines": [
+                "ZTOOL_P1=",
+                "MT_TASK=",
+                "MT_APP_FUNC=",
+                "MT_SYS_FUNC=",
+                "MT_ZDO_FUNC=",
+                "LCD_SUPPORTED=DEBUG"
+            ],
+            "includePath": [
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\Source",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\Source",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\ZMain\\TI2530DB",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\hal\\include",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\hal\\target\\CC2530EB",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\mac\\include",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\mac\\high_level",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\mac\\low_level\\srf04",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\mac\\low_level\\srf04\\single_chip",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\mt",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\osal\\include",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\services\\saddr",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\services\\sdata",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\stack\\af",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\stack\\nwk",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\stack\\sapi",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\stack\\sec",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\stack\\sys",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\stack\\zcl",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\stack\\zdo",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\zmac",
+                "/mnt/d/MCU/Zigbee/project/zigbee/Projects/zstack/HomeAutomation/SampleLight/CC2530DB\\..\\..\\..\\..\\..\\Components\\zmac\\f8w"
+            ],
+            "forcedInclude": [],
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "compilerPath": "",
+            "intelliSenseMode": "msvc-x64",
+            "configurationProvider": "pluyckx.iar-vsc"
+        }
+    ]
+}
