@@ -91,7 +91,7 @@
  * GLOBAL VARIABLES
  */
 uint8 AppTitle[] = "ALD Broadcast"; //应用程序名称
-uint8  SelfTd=0x01 ;//用户的ID
+uint8  SelfTd=0x02 ;//用户的ID
 
 // This list should be filled with Application specific Cluster IDs.
 const cId_t SampleApp_ClusterList[SAMPLEAPP_MAX_CLUSTERS] =
@@ -425,13 +425,13 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt ) //接收数据
       HalUARTWrite(0,"rssi:",5);
       HalUARTWrite(0,rssi_buf,3); 
       HalUARTWrite(0,"     ",5); 
-      if(count<30)//当接近到非安全距离
+      if(count<60)//当接近到非安全距离
       {
          Delay(30000);//是否停留
-         if(count<30)
+         if(count<60)
          {
            Send[0]=SelfTd;//自己用户ID
-           Send[1]=pkt->cmd.Data[0];//接触的用户ID
+          Send[1]=pkt->cmd.Data[0];//接触的用户ID
            SampleApp_SendPointToPointMessage(Send);//点播方式发给协调器
            HalUARTWrite(0, Send,2); //输出接收到的数据,调试用
          }
