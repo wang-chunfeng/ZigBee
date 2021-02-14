@@ -91,6 +91,7 @@
  * GLOBAL VARIABLES
  */
 uint8 AppTitle[] = "ALD Broadcast"; //应用程序名称
+uint8  SelfTd=0x02 ;//用户的ID
 
 // This list should be filled with Application specific Cluster IDs.
 const cId_t SampleApp_ClusterList[SAMPLEAPP_MAX_CLUSTERS] =
@@ -152,7 +153,7 @@ void SampleApp_HandleKeys( uint8 shift, uint8 keys );
 void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pckt );
 void SampleApp_SendPeriodicMessage( void );
 void SampleApp_SendFlashMessage( uint16 flashTime );
-void SampleApp_SendPointToPointMessage( void);
+void SampleApp_SendPointToPointMessage( uint8 *SendID );
 void SampleApp_SerialCMD(mtOSALSerialData_t *cmdMsg);
 void Delay(uint32 i);
 
@@ -412,31 +413,42 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt ) //接收数据
   uint16 flashTime;
   int8 count;
   int8 rssi_buf[3];
+  uint8 Send[2];//用于接收连个接触用户的ID，SampleApp_SendPointToPointMessage()的参数
+  uint8 DataFrame[5];//协调器传输到串口的数据帧
   switch ( pkt->clusterId )
   {
     case SAMPLEAPP_PERIODIC_CLUSTERID://收到广播数据
-      count=~(pkt->rssi-1);//转换为原码
-      rssi_buf[0]='-';//信号强度一定为负数
-      rssi_buf[1]=count/10+0x30;
-      rssi_buf[2]=count%10+0x30;
-      HalUARTWrite(0,"rssi:",5);
-      HalUARTWrite(0,rssi_buf,3); 
-      HalUARTWrite(0,"     ",5); 
-      if(count<30)//当接近到非安全距离
-      {
-         Delay(30000);//是否停留
-         if(count<30)
-         {
-            HalUARTWrite(0, pkt->cmd.Data, pkt->cmd.DataLength); //输出接收到的数据
-         }
-      }
+      //count=~(pkt->rssi-1);//转换为原码
+      //rssi_buf[0]='-';//信号强度一定为负数
+     // rssi_buf[1]=count/10+0x30;
+      //rssi_buf[2]=count%10+0x30;
+      //HalUARTWrite(0,"rssi:",5);
+      //HalUARTWrite(0,rssi_buf,3); 
+      //HalUARTWrite(0,"     ",5); 
+      //if(count<30)//当接近到非安全距离
+      //{
+       //  Delay(30000);//是否停留
+        // if(count<30)
+        // {
+          // Send[0]=SelfTd;//自己用户ID
+          // Send[1]=pkt->cmd.Data[0];//接触的用户ID
+          // SampleApp_SendPointToPointMessage(Send);//点播方式发给协调器
+          // HalUARTWrite(0, Send,2); //输出接收到的数据,调试用
+         //}
+      //}
       break;
     case SAMPLEAPP_FLASH_CLUSTERID:     //收到组播数据，此实验没有使用，到后面实验详解
       flashTime = BUILD_UINT16(pkt->cmd.Data[1], pkt->cmd.Data[2] );
       HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
       break;
   case  SAMPLEAPP_POINT_TO_POINT_CLUSTERID ://点播,协调器收到点播是数据将发来是数据节点ID加接触的ID打包输出到串口
-      
+      DataFrame[0]=0xFF;
+      DataFrame[1]=0xFE;
+      DataFrame[2]=pkt->cmd.Data[0];
+      DataFrame[3]=pkt->cmd.Data[1];
+      DataFrame[4]=0xAA;
+      HalUARTWrite(0,DataFrame,5);
+      HalUARTWrite(0,"\n\r",2);
       break;
   }
 }
@@ -452,11 +464,10 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt ) //接收数据
  */
 void SampleApp_SendPeriodicMessage( void )//周期发送函数，用于广播
 {
-  uint8 ID=0x01;
   if ( AF_DataRequest( &SampleApp_Periodic_DstAddr, &SampleApp_epDesc,
                        SAMPLEAPP_PERIODIC_CLUSTERID,
                        1,
-                       &ID,
+                       &SelfTd,
                        &SampleApp_TransID,
                        AF_DISCV_ROUTE,
                        AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )
@@ -468,14 +479,14 @@ void SampleApp_SendPeriodicMessage( void )//周期发送函数，用于广播
   }
 }
 //点播发送函数
-void SampleApp_SendPointToPointMessage(void)
+void SampleApp_SendPointToPointMessage( uint8 *SendID )
 {
-  unsigned char data[14] = "Hello Seanoy\r\n";//发送的数据
+  
   if(AF_DataRequest ( &SampleAPP_Point_To_Point_DstAddr,//前面定义的设备地址结构体
                       &SampleApp_epDesc,//default
                       SAMPLEAPP_POINT_TO_POINT_CLUSTERID,//这个传输编号宏定义需要在SampleApp.h内部添加
-                      14,//发送的数据数
-                      data,//数据指针
+                      2,//发送的数据数
+                      SendID,//数据指针
                       &SampleApp_TransID,//default
                       AF_DISCV_ROUTE,//default
                       AF_DEFAULT_RADIUS ) == afStatus_SUCCESS )//default

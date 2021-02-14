@@ -79,6 +79,7 @@ extern "C"
   
 // Flash Command Duration - in milliseconds
 #define SAMPLEAPP_FLASH_DURATION              1000
+  
 
 /*********************************************************************
  * MACROS
