@@ -416,26 +416,29 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt ) //接收数据
   int8 count;
   int8 rssi_buf[3];
   uint8 Send[3];//用于接收连个接触用户的ID，SampleApp_SendPointToPointMessage()的参数
- // int8 rssi;//用于相对距离的转换
+  double rssi = 0;//用于相对距离的转换
+  double D = 0;//存储相对距离
   uint8 DataFrame[6];//协调器传输到串口的数据帧
   switch ( pkt->clusterId )
   {
     case SAMPLEAPP_PERIODIC_CLUSTERID://收到广播数据
-     count=~(pkt->rssi-1);//转换为原码
-     rssi_buf[0]='-';//信号强度一定为负数
+      count=~(pkt->rssi-1);//转换为原码
+      rssi_buf[0]='-';//信号强度一定为负数
       rssi_buf[1]=count/10+0x30;
       rssi_buf[2]=count%10+0x30;
       HalUARTWrite(0,"rssi:",5);
       HalUARTWrite(0,rssi_buf,3); 
-      HalUARTWrite(0,"     ",5); 
-      if(count<80)//当接近到非安全距离
+      HalUARTWrite(0,"     ",5);
+      rssi=((double)(~(pkt->rssi-1)-38))/(10.0*3.0);
+      D = pow(10.0,rssi);
+      if(D<15)//当接近到非安全距离
       {
          Delay(30000);//是否停留
-         if(count<80)
+         if(D<15)
          {
            Send[0]=SelfTd;//自己用户ID
            Send[1]=pkt->cmd.Data[0];//接触的用户ID
-           Send[2]=pow(10,(((count&01111111)-46)/(10*3)));//相对距离
+           Send[2]=D;//相对距离
            SampleApp_SendPointToPointMessage(Send);//点播方式发给协调器
            HalUARTWrite(0, Send,3); //输出接收到的数据,调试用
          }
