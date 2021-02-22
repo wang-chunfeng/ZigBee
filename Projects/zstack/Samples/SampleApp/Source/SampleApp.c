@@ -67,6 +67,8 @@
 
 #include "OnBoard.h"
 
+#include "math.h"
+
 /* HAL */
 #include "hal_lcd.h"
 #include "hal_led.h"
@@ -91,7 +93,7 @@
  * GLOBAL VARIABLES
  */
 uint8 AppTitle[] = "ALD Broadcast"; //应用程序名称
-uint8  SelfTd=0x02 ;//用户的ID
+uint8  SelfTd=0x01 ;//用户的ID
 
 // This list should be filled with Application specific Cluster IDs.
 const cId_t SampleApp_ClusterList[SAMPLEAPP_MAX_CLUSTERS] =
@@ -413,27 +415,29 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt ) //接收数据
   uint16 flashTime;
   int8 count;
   int8 rssi_buf[3];
-  uint8 Send[2];//用于接收连个接触用户的ID，SampleApp_SendPointToPointMessage()的参数
-  uint8 DataFrame[5];//协调器传输到串口的数据帧
+  uint8 Send[3];//用于接收连个接触用户的ID，SampleApp_SendPointToPointMessage()的参数
+ // int8 rssi;//用于相对距离的转换
+  uint8 DataFrame[6];//协调器传输到串口的数据帧
   switch ( pkt->clusterId )
   {
     case SAMPLEAPP_PERIODIC_CLUSTERID://收到广播数据
-      count=~(pkt->rssi-1);//转换为原码
-      rssi_buf[0]='-';//信号强度一定为负数
+     count=~(pkt->rssi-1);//转换为原码
+     rssi_buf[0]='-';//信号强度一定为负数
       rssi_buf[1]=count/10+0x30;
       rssi_buf[2]=count%10+0x30;
       HalUARTWrite(0,"rssi:",5);
       HalUARTWrite(0,rssi_buf,3); 
       HalUARTWrite(0,"     ",5); 
-      if(count<60)//当接近到非安全距离
+      if(count<80)//当接近到非安全距离
       {
          Delay(30000);//是否停留
-         if(count<60)
+         if(count<80)
          {
            Send[0]=SelfTd;//自己用户ID
-          Send[1]=pkt->cmd.Data[0];//接触的用户ID
+           Send[1]=pkt->cmd.Data[0];//接触的用户ID
+           Send[2]=pow(10,(((count&01111111)-46)/(10*3)));//相对距离
            SampleApp_SendPointToPointMessage(Send);//点播方式发给协调器
-           HalUARTWrite(0, Send,2); //输出接收到的数据,调试用
+           HalUARTWrite(0, Send,3); //输出接收到的数据,调试用
          }
       }
       break;
@@ -446,9 +450,10 @@ void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt ) //接收数据
       DataFrame[1]=0xFE;
       DataFrame[2]=pkt->cmd.Data[0];
       DataFrame[3]=pkt->cmd.Data[1];
-      DataFrame[4]=0xAA;
-      HalUARTWrite(0,DataFrame,5);
-      HalUARTWrite(0,"\n\r",2);
+      DataFrame[4]=pkt->cmd.Data[2];      
+      DataFrame[5]=0xAA;
+      HalUARTWrite(0,DataFrame,6);
+//      HalUARTWrite(0,"\n\r",2);
       break;
   }
 }
@@ -485,7 +490,7 @@ void SampleApp_SendPointToPointMessage( uint8 *SendID )
   if(AF_DataRequest ( &SampleAPP_Point_To_Point_DstAddr,//前面定义的设备地址结构体
                       &SampleApp_epDesc,//default
                       SAMPLEAPP_POINT_TO_POINT_CLUSTERID,//这个传输编号宏定义需要在SampleApp.h内部添加
-                      2,//发送的数据数
+                      3,//发送的数据数
                       SendID,//数据指针
                       &SampleApp_TransID,//default
                       AF_DISCV_ROUTE,//default
